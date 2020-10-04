@@ -1,5 +1,55 @@
 import styled, { createGlobalStyle } from "styled-components";
 
+export const IClinicChallengeWrapper = styled.div`
+  padding: 210px 0;
+
+  text-align: center;
+  color: ${(props) => props.theme.fontColor};
+`;
+
+export const ChallengeTitle = styled.div`
+  font-size: 72px;
+
+  span {
+    font-weight: 700;
+  }
+`;
+
+export const ChallengeSubTitle = styled.div`
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 14px;
+`;
+
+export const ChallengeStart = styled.button`
+  height: 56px;
+  margin-top: 160px;
+  padding: 0 50px;
+
+  border-radius: 10px;
+  border: 2px solid ${(props) => props.theme.buttonBgColor};
+  background-color: ${(props) => props.theme.buttonBgColor};
+
+  color: ${(props) => props.theme.buttonFontColor};
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 700;
+
+  transition: color 0.3s, background-color 0.3s, opacity 0.3s;
+
+  &:not(:disabled):hover {
+    background-color: ${(props) => props.theme.buttonFontColor};
+
+    color: ${(props) => props.theme.fontColor};
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+`;
+
 interface props {
   theme: {
     bgColor: string;

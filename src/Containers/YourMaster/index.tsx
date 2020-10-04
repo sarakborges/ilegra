@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useEffect, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { ThemeProvider } from "styled-components";
 
 // Context
@@ -15,11 +15,16 @@ import { Master } from "Interfaces/Master";
 import Container from "Components/Container";
 
 // Themes
+import MainTheme from "Themes/Main";
 import DarkTheme from "Themes/Dark";
 import LightTheme from "Themes/Light";
 
 // Styles
 import {
+  IClinicChallengeWrapper,
+  ChallengeTitle,
+  ChallengeSubTitle,
+  ChallengeStart,
   MasterGlobalStyle,
   MasterWrapper,
   ChooseAgain,
@@ -63,13 +68,24 @@ const YourMaster = () => {
     });
   };
 
-  useEffect(() => {
-    getYourMaster();
-  }, []);
-
   // DOM
   return (
     <Container>
+      {!state.master && (
+        <ThemeProvider theme={MainTheme}>
+          <IClinicChallengeWrapper>
+            <ChallengeTitle>
+              Welcome to <span>iClinic</span>
+            </ChallengeTitle>
+            <ChallengeSubTitle>Frontend Challenge</ChallengeSubTitle>
+
+            <ChallengeStart onClick={getYourMaster} disabled={state.isLoading}>
+              Start
+            </ChallengeStart>
+          </IClinicChallengeWrapper>
+        </ThemeProvider>
+      )}
+
       {!!state.master && (
         <ThemeProvider theme={theme}>
           <MasterGlobalStyle theme={theme} />
