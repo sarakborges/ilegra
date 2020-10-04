@@ -1,6 +1,8 @@
 // Dependencies
 import React, { useContext, useState } from "react";
 import { ThemeProvider } from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 // Context
 import { AppContext } from "Contexts/App";
@@ -26,6 +28,7 @@ import {
   ChallengeSubTitle,
   ChallengeStart,
   MasterGlobalStyle,
+  GoBack,
   MasterWrapper,
   ChooseAgain,
   MasterPicture,
@@ -89,6 +92,18 @@ const YourMaster = () => {
       {!!state.master && (
         <ThemeProvider theme={theme}>
           <MasterGlobalStyle theme={theme} />
+
+          <GoBack
+            onClick={() => {
+              dispatch({
+                type: "SET_MASTER",
+                data: undefined,
+              });
+            }}
+          >
+            <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
+            <span>back</span>
+          </GoBack>
 
           <MasterWrapper>
             <ChooseAgain onClick={getYourMaster} disabled={state.isLoading}>

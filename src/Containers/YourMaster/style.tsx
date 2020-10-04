@@ -64,6 +64,26 @@ export const MasterGlobalStyle = createGlobalStyle<props>`
   }
 `;
 
+export const GoBack = styled.button`
+  display: flex;
+  align-items: center;
+
+  margin-top: 45px;
+  padding: 0;
+
+  background: none;
+  border: none;
+
+  font-size: 28px;
+  color: ${(props) => props.theme.fontColor};
+
+  span {
+    margin-left: 15px;
+
+    font-size: 18px;
+  }
+`;
+
 export const MasterWrapper = styled.div`
   display: grid;
 
