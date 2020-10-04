@@ -1,9 +1,11 @@
 import axios from "axios";
 
 const cancelToken = axios.CancelToken;
-const source = cancelToken.source();
+let source = cancelToken.source();
 
 const getYourMaster = (callback: Function) => {
+  source = cancelToken.source();
+
   axios
     .get(`https://swapi.dev/api/people/1`, {
       cancelToken: source.token,

@@ -6,6 +6,7 @@ import { AppReducer } from "Reducers/App";
 
 const initialState: App = {
   master: undefined,
+  isLoading: false,
 };
 
 const AppContext = createContext<{
