@@ -2,7 +2,7 @@ const getYourMaster = (callback: Function) => {
   const abortController = new AbortController();
 
   const request = (id: number) => {
-    fetch(`https://swapi.dev/api/people/${id}`, {
+    fetch(`https://swapi.dev/api/people/${id}/`, {
       signal: abortController.signal,
     })
       .then((res) => res.json())
