@@ -52,22 +52,18 @@ const YourMaster = () => {
       data: true,
     });
 
-    await SWAPI.getYourMaster((res: { status: number; data: Master }) => {
-      if (res.status === 200) {
-        setTheme(() =>
-          res.data.name === "Darth Vader" ? DarkTheme : LightTheme
-        );
+    await SWAPI.getYourMaster((res: Master) => {
+      setTheme(() => (res.name === "Darth Vader" ? DarkTheme : LightTheme));
 
-        dispatch({
-          type: "SET_MASTER",
-          data: res.data,
-        });
+      dispatch({
+        type: "SET_MASTER",
+        data: res,
+      });
 
-        dispatch({
-          type: "SET_IS_LOADING",
-          data: false,
-        });
-      }
+      dispatch({
+        type: "SET_IS_LOADING",
+        data: false,
+      });
     });
   };
 

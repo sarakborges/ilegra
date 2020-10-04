@@ -1,34 +1,22 @@
-import axios from "axios";
-
-const cancelToken = axios.CancelToken;
-let source = cancelToken.source();
-
 const getYourMaster = (callback: Function) => {
-  source = cancelToken.source();
+  const abortController = new AbortController();
 
-  axios
-    .get(`https://swapi.dev/api/people/1`, {
-      cancelToken: source.token,
+  const request = (id: number) => {
+    fetch(`https://swapi.dev/api/people/${id}`, {
+      signal: abortController.signal,
     })
-    .then((res) => {
-      source.cancel("Request encerrada");
-      callback(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .then((res) => res.json())
+      .then((json) => {
+        callback(json);
+        abortController.abort();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-  axios
-    .get(`https://swapi.dev/api/people/4`, {
-      cancelToken: source.token,
-    })
-    .then((res) => {
-      source.cancel("Request encerrada");
-      callback(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  request(1);
+  request(4);
 };
 
 const SWAPI = {
