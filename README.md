@@ -1,6 +1,6 @@
 ## Olá, Padawan!
 
-Este projeto é um desafio técnico para a iClinic, realizado por euzinha. Sara.
+Este projeto é um desafio técnico para a Ilegra, realizado por euzinha. Sara.
 
 ## Como foi feito
 
