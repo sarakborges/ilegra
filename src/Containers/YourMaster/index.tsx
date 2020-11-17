@@ -74,7 +74,7 @@ const YourMaster = () => {
         <ThemeProvider theme={MainTheme}>
           <IClinicChallengeWrapper>
             <ChallengeTitle>
-              Welcome to <span>iClinic</span>
+              Welcome to <span>Ilegra</span>
             </ChallengeTitle>
             <ChallengeSubTitle>Frontend Challenge</ChallengeSubTitle>
 
